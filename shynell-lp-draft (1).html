@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHYNELL | Private Esthetic Salon, Oyama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FAF6EF;
+    --ink:#2A2620;
+    --ink-soft:#5A5347;
+    --brass:#9C7A3C;
+    --brass-light:#C9A968;
+    --moss:#55624A;
+    --hairline:#E2D8C3;
+    --card:#F3EEE3;
+    --max:1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-weight:400;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.mincho{ font-family:'Shippori Mincho', serif; }
+  .garamond{ font-family:'EB Garamond', serif; }
+  a{ color:inherit; text-decoration:none; }
+  img{max-width:100%;display:block;}
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 32px; }
+  @media(max-width:640px){ .wrap{ padding:0 22px; } }
+
+  .eyebrow{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    font-size:12.5px;
+    color:var(--brass);
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:22px 0;
+    transition:background .4s ease, padding .4s ease, box-shadow .4s ease;
+  }
+  header.scrolled{
+    background:rgba(250,246,239,0.92);
+    backdrop-filter:blur(10px);
+    padding:14px 0;
+    box-shadow:0 1px 0 var(--hairline);
+  }
+  header .wrap{ display:flex; align-items:center; justify-content:space-between; }
+  .logo{
+    font-family:'Shippori Mincho', serif;
+    font-size:22px;
+    letter-spacing:0.12em;
+    font-weight:600;
+  }
+  nav.desktop-nav{ display:flex; align-items:center; gap:38px; }
+  nav.desktop-nav a{
+    font-size:13.5px;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    position:relative;
+    padding-bottom:4px;
+  }
+  nav.desktop-nav a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:var(--brass); transition:width .3s ease;
+  }
+  nav.desktop-nav a:hover::after{ width:100%; }
+  .cta-pill{
+    display:inline-block;
+    padding:11px 26px;
+    border:1px solid var(--brass);
+    border-radius:999px;
+    font-size:13px;
+    letter-spacing:0.06em;
+    color:var(--brass);
+    transition:all .3s ease;
+    white-space:nowrap;
+  }
+  .cta-pill:hover{ background:var(--brass); color:var(--ivory); }
+  .cta-pill.solid{ background:var(--ink); color:var(--ivory); border-color:var(--ink); }
+  .cta-pill.solid:hover{ background:var(--brass); border-color:var(--brass); }
+
+  .burger{ display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:110; }
+  .burger span{ width:24px; height:1px; background:var(--ink); display:block; transition:.3s; }
+
+  @media(max-width:860px){
+    nav.desktop-nav{ display:none; }
+    .burger{ display:flex; }
+  }
+  .mobile-nav{
+    position:fixed; inset:0; background:var(--ivory);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px;
+    transform:translateY(-100%); transition:transform .45s ease;
+    z-index:105;
+  }
+  .mobile-nav.open{ transform:translateY(0); }
+  .mobile-nav a{ font-family:'Shippori Mincho',serif; font-size:22px; }
+
+  /* ---------- BOTANICAL SIGNATURE LINE (desktop) ---------- */
+  .thread{
+    position:fixed; left:46px; top:0; bottom:0; width:1px;
+    background:linear-gradient(to bottom, transparent, var(--hairline) 8%, var(--hairline) 92%, transparent);
+    z-index:1;
+  }
+  @media(max-width:1040px){ .thread{ display:none; } }
+  .leaf-mark{
+    position:absolute; left:-7px; width:15px; height:15px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex; flex-direction:column; justify-content:center;
+    position:relative;
+    padding-top:120px; padding-bottom:80px;
+  }
+  .hero .wrap{ position:relative; }
+  .hero-tag{ margin-bottom:26px; }
+  .hero h1{
+    font-size:clamp(40px, 6.4vw, 84px);
+    line-height:1.28;
+    font-weight:600;
+    letter-spacing:0.02em;
+  }
+  .hero h1 .accent{ color:var(--brass); }
+  .hero-sub{
+    margin-top:28px;
+    max-width:480px;
+    color:var(--ink-soft);
+    font-size:15.5px;
+    line-height:2;
+  }
+  .hero-ctas{ margin-top:44px; display:flex; gap:16px; flex-wrap:wrap; }
+  .hero-meta{
+    position:absolute; right:0; bottom:-20px;
+    text-align:right;
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:13px;
+    color:var(--ink-soft);
+    letter-spacing:0.04em;
+    line-height:1.8;
+  }
+  @media(max-width:860px){ .hero-meta{ position:static; text-align:left; margin-top:60px; } }
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{ padding:130px 0; position:relative; }
+  @media(max-width:640px){ section{ padding:88px 0; } }
+  .section-head{ max-width:620px; margin-bottom:64px; }
+  .section-head h2{
+    font-size:clamp(28px,3.6vw,42px);
+    margin-top:16px;
+    font-weight:600;
+    line-height:1.5;
+  }
+  .divider{
+    width:44px; height:1px; background:var(--brass); margin:24px 0;
+  }
+
+  /* ---------- CONCEPT ---------- */
+  .concept{ background:var(--card); }
+  .concept-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center;
+  }
+  @media(max-width:860px){ .concept-grid{ grid-template-columns:1fr; gap:40px; } }
+  .concept-body p{ color:var(--ink-soft); font-size:15.5px; margin-bottom:22px; }
+  .concern-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:30px; }
+  .concern-tags span{
+    font-size:13px; padding:8px 18px; border:1px solid var(--hairline);
+    border-radius:999px; color:var(--ink-soft);
+  }
+  .photo-ph{
+    aspect-ratio:4/5; background:
+      radial-gradient(circle at 30% 20%, rgba(156,122,60,0.10), transparent 60%),
+      linear-gradient(160deg, #F1E9D8, #E8DEC7);
+    border:1px solid var(--hairline);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+  }
+  .photo-ph .cap{
+    font-family:'EB Garamond', serif; font-style:italic; font-size:12px;
+    letter-spacing:0.1em; color:var(--brass); text-transform:uppercase;
+  }
+  .photo-ph svg{ opacity:0.5; width:38%; }
+
+  /* ---------- MENU ---------- */
+  .menu-layout{ display:grid; grid-template-columns:120px 1fr; gap:0; }
+  @media(max-width:760px){ .menu-layout{ grid-template-columns:1fr; } }
+  .vertical-label{
+    writing-mode:vertical-rl;
+    font-family:'EB Garamond', serif;
+    letter-spacing:0.3em;
+    font-size:13px;
+    color:var(--brass);
+    text-transform:uppercase;
+    padding-bottom:20px;
+  }
+  @media(max-width:760px){ .vertical-label{ writing-mode:horizontal-tb; margin-bottom:24px; padding-bottom:0; } }
+  .menu-group{ margin-bottom:56px; }
+  .menu-group:last-child{ margin-bottom:0; }
+  .menu-group-title{ font-size:20px; margin-bottom:6px; }
+  .menu-group-sub{ font-size:12.5px; color:var(--ink-soft); margin-bottom:26px; }
+  .menu-item{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:20px 0; border-bottom:1px solid var(--hairline);
+    gap:20px;
+  }
+  .menu-item .left{ flex:1; }
+  .menu-item .name{ font-size:16.5px; font-weight:500; }
+  .menu-item .time{ font-size:12.5px; color:var(--ink-soft); margin-top:4px; }
+  .menu-item .price{
+    font-family:'EB Garamond', serif; font-size:19px; white-space:nowrap; text-align:right;
+  }
+  .menu-item .price .note{ display:block; font-size:11px; color:var(--ink-soft); font-family:'Zen Kaku Gothic New',sans-serif; margin-top:2px;}
+
+  /* ---------- RESULTS ---------- */
+  .results{ background:var(--card); }
+  .ba-row{ display:grid; grid-template-columns:1fr 1fr; gap:2px; border:1px solid var(--hairline); }
+  @media(max-width:640px){ .ba-row{ grid-template-columns:1fr; } }
+  .ba-cell{
+    aspect-ratio:3/4; background:var(--ivory);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+    position:relative;
+  }
+  .ba-cell .tag{ font-family:'EB Garamond',serif; font-style:italic; letter-spacing:0.15em; font-size:12px; color:var(--ink-soft); text-transform:uppercase; }
+  .voice{
+    margin-top:60px; max-width:640px; padding:40px 44px;
+    background:var(--ivory); border-left:2px solid var(--brass);
+  }
+  .voice p{ font-family:'Shippori Mincho',serif; font-size:19px; line-height:2; }
+  .voice .who{ margin-top:20px; font-size:13px; color:var(--ink-soft); }
+  .voice .sample-note{ margin-top:14px; font-size:11.5px; color:var(--brass); letter-spacing:0.04em; }
+
+  /* ---------- ITEMS / BRAND ---------- */
+  .items-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--hairline); border:1px solid var(--hairline); }
+  @media(max-width:640px){ .items-grid{ grid-template-columns:1fr; } }
+  .item-card{ background:var(--ivory); padding:40px; }
+  .item-card .idx{ font-family:'EB Garamond',serif; font-size:12px; color:var(--brass); letter-spacing:0.1em; }
+  .item-card h3{ margin-top:14px; font-size:19px; font-weight:600; }
+  .item-card p{ margin-top:12px; font-size:14px; color:var(--ink-soft); }
+
+  /* ---------- ACCESS ---------- */
+  .access-grid{ display:grid; grid-template-columns:1fr 1fr; gap:70px; }
+  @media(max-width:860px){ .access-grid{ grid-template-columns:1fr; gap:40px; } }
+  .info-line{ display:flex; gap:20px; padding:16px 0; border-bottom:1px solid var(--hairline); font-size:14.5px; }
+  .info-line .k{ width:88px; flex-shrink:0; color:var(--brass); letter-spacing:0.05em; font-size:13px; }
+  .map-ph{
+    aspect-ratio:4/3; background:var(--card); border:1px solid var(--hairline);
+    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px;
+  }
+  .access-ctas{ display:flex; flex-direction:column; gap:14px; margin-top:34px; }
+  .access-ctas .cta-pill{ text-align:center; width:100%; padding:15px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding:70px 0 40px; border-top:1px solid var(--hairline); }
+  footer .wrap{ display:flex; flex-direction:column; align-items:center; gap:22px; text-align:center; }
+  footer .fmark{ font-family:'Shippori Mincho',serif; font-size:20px; letter-spacing:0.1em; }
+  footer .flinks{ display:flex; gap:26px; font-size:13px; color:var(--ink-soft); flex-wrap:wrap; justify-content:center; }
+  footer .fine{ font-size:11.5px; color:var(--ink-soft); opacity:0.7; margin-top:10px; }
+
+  /* reveal */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="thread" aria-hidden="true"></div>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <div class="logo">SHYNELL</div>
+    <nav class="desktop-nav">
+      <a href="#concept">コンセプト</a>
+      <a href="#menu">メニュー</a>
+      <a href="#results">お客様の声</a>
+      <a href="#access">アクセス</a>
+      <a href="#" class="cta-pill solid">ご予約はLINEから</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#concept">コンセプト</a>
+  <a href="#menu">メニュー</a>
+  <a href="#results">お客様の声</a>
+  <a href="#access">アクセス</a>
+  <a href="#" class="cta-pill solid">ご予約はLINEから</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-tag eyebrow">Private Esthetic Salon — Oyama, Tochigi</div>
+    <h1 class="reveal in">最近、<br>肌の調子<span class="accent">いいかも。</span></h1>
+    <p class="hero-sub">シミ・シワ・たるみ・毛穴——加齢とともに変化する肌に、<br class="br-d">
+      カウンセリングと再現性のある施術で本気で向き合うサロンです。</p>
+    <div class="hero-ctas">
+      <a href="#" class="cta-pill solid">ご予約はLINEから</a>
+      <a href="#menu" class="cta-pill">メニューを見る</a>
+    </div>
+    <div class="hero-meta garamond">Facial &amp; Body Treatment<br>By Appointment Only</div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section class="concept" id="concept">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Concept</div>
+      <h2>肌に、本気で向き合う。</h2>
+    </div>
+    <div class="concept-grid">
+      <div class="photo-ph reveal">
+        <span class="cap">Salon Interior — Photo</span>
+      </div>
+      <div class="concept-body reveal">
+        <p>「なんとなくのケア」で終わらせない。お一人おひとりの肌質・悩み・生活習慣を丁寧にカウンセリングした上で、今の肌に本当に必要な施術を組み立てます。</p>
+        <p>その場限りの満足で終わらない、続けるほどに変化を実感できるケアを。マンツーマンだからこそできる、専門性の高い施術をお届けします。</p>
+        <div class="divider"></div>
+        <div class="concern-tags">
+          <span>シミ</span><span>シワ</span><span>たるみ</span><span>毛穴</span><span>くすみ</span><span>乾燥</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Menu</div>
+      <h2>フェイシャル ＆ ボディ</h2>
+    </div>
+    <div class="menu-layout">
+      <div class="vertical-label">Treatment Menu</div>
+      <div>
+        <div class="menu-group reveal">
+          <div class="menu-group-title mincho">フェイシャル</div>
+          <div class="menu-group-sub">FACIAL TREATMENT</div>
+
+          <div class="menu-item">
+            <div class="left">
+              <div class="name">エピダーマルスキン</div>
+              <div class="time">60min</div>
+            </div>
+            <div class="price">¥8,800<span class="note">初回 / 2回目以降 ¥12,400</span></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="left">
+              <div class="name">幹細胞培養上清液（エクソソーム）フェイシャル</div>
+              <div class="time">90min</div>
+            </div>
+            <div class="price">¥15,800<span class="note">初回 / 2回目以降 ¥22,000</span></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="left">
+              <div class="name">ハーブピーリング</div>
+              <div class="time">60min</div>
+            </div>
+            <div class="price">¥9,800<span class="note">初回 / 2回目以降 ¥13,200</span></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="left">
+              <div class="name">バイオフィト</div>
+              <div class="time">60min</div>
+            </div>
+            <div class="price">¥10,800<span class="note">初回 / 2回目以降 ¥14,300</span></div>
+          </div>
+
+          <div class="menu-item">
+            <div class="left">
+              <div class="name">アンストレス</div>
+              <div class="time">60min</div>
+            </div>
+            <div class="price">¥9,300<span class="note">初回 / 2回目以降 ¥12,800</span></div>
+          </div>
+        </div>
+
+        <div class="menu-group reveal">
+          <div class="menu-group-title mincho">ボディ</div>
+          <div class="menu-group-sub">BODY TREATMENT</div>
+
+          <div class="menu-item">
+            <div class="left">
+              <div class="name">ハーブラセラ</div>
+              <div class="time">90min</div>
+            </div>
+            <div class="price">¥13,800<span class="note">初回 / 2回目以降 ¥18,000</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Results</div>
+      <h2>変化を、実感していただく。</h2>
+    </div>
+    <div class="ba-row reveal">
+      <div class="ba-cell">
+        <span class="tag">Before — Photo</span>
+      </div>
+      <div class="ba-cell">
+        <span class="tag">After — Photo</span>
+      </div>
+    </div>
+
+    <div class="voice reveal">
+      <p>「担当の方が肌の状態を丁寧に説明してくれて、安心してお任せできました。回数を重ねるごとに肌のトーンが変わってきたのを実感しています。」</p>
+      <div class="who">— お客様（40代・サンプル）</div>
+      <div class="sample-note">※実際のお客様の声に差し替え予定</div>
+    </div>
+  </div>
+</section>
+
+<!-- ITEMS -->
+<section id="items">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Approach</div>
+      <h2>使用アイテム・技術</h2>
+    </div>
+    <div class="items-grid reveal">
+      <div class="item-card">
+        <div class="idx garamond">01</div>
+        <h3>幹細胞培養上清液</h3>
+        <p>肌本来の再生力にアプローチする先端の美容成分。年齢肌の土台からのケアに。</p>
+      </div>
+      <div class="item-card">
+        <div class="idx garamond">02</div>
+        <h3>ハーブピーリング</h3>
+        <p>天然由来のハーブを使用し、肌に負担をかけずにターンオーバーを整えます。</p>
+      </div>
+      <div class="item-card">
+        <div class="idx garamond">03</div>
+        <h3>バイオフィト</h3>
+        <p>植物由来成分を中心に、低刺激で続けやすいケアを設計。</p>
+      </div>
+      <div class="item-card">
+        <div class="idx garamond">04</div>
+        <h3>オリジナルスキンケアブランド</h3>
+        <p>サロン施術の効果を自宅でも継続いただけるアイテムをご用意。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section id="access">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Access &amp; Reservation</div>
+      <h2>ご予約について</h2>
+    </div>
+    <div class="access-grid">
+      <div class="reveal">
+        <div class="info-line"><div class="k">住所</div><div>栃木県小山市 ◯◯◯（詳細住所差し替え）</div></div>
+        <div class="info-line"><div class="k">営業時間</div><div>10:00 – 22:00</div></div>
+        <div class="info-line"><div class="k">定休日</div><div>不定休</div></div>
+        <div class="info-line"><div class="k">予約方法</div><div>LINE公式アカウントより承っております</div></div>
+
+        <div class="access-ctas">
+          <a href="#" class="cta-pill solid">LINEでご予約</a>
+          <a href="#" class="cta-pill">ホットペッパービューティーで見る</a>
+          <a href="#" class="cta-pill">オンラインショップ（BASE）</a>
+        </div>
+      </div>
+      <div class="map-ph reveal">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#9C7A3C" stroke-width="1.3"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+        <span class="cap eyebrow" style="text-align:center">Google マップ埋め込み予定</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fmark">SHYNELL</div>
+    <div class="flinks">
+      <a href="#">Instagram</a>
+      <a href="#">LINE公式</a>
+      <a href="#">ホットペッパービューティー</a>
+      <a href="#">BASE Shop</a>
+    </div>
+    <div class="fine">© SHYNELL — Private Esthetic Salon, Oyama, Tochigi</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  const burger = document.getElementById('burger');
+  const mobileNav = document.getElementById('mobileNav');
+  burger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
