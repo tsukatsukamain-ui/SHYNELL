@@ -291,7 +291,7 @@
   .info-line .k{ width:88px; flex-shrink:0; color:var(--brass); letter-spacing:0.05em; font-size:13px; }
   .map-ph{
     aspect-ratio:4/3; background:var(--card); border:1px solid var(--hairline);
-    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px;
+    position:relative; overflow:hidden;
   }
   .access-ctas{ display:flex; flex-direction:column; gap:14px; margin-top:34px; }
   .access-ctas .cta-pill{ text-align:center; width:100%; padding:15px; }
@@ -715,10 +715,10 @@
           <a href="https://shynell6022.base.shop/" target="_blank" rel="noopener" class="cta-pill">オンラインショップ（BASE）</a>
         </div>
       </div>
-      <div class="map-ph reveal" style="padding:0;">
+      <div class="map-ph reveal">
         <iframe
-          src="https://www.google.com/maps?q=%E6%A0%83%E6%9C%A8%E7%9C%8C%E5%B0%8F%E5%B1%B1%E5%B8%82%E4%B8%89%E5%B3%AF2-1-45+%E3%82%AA%E3%83%A4%E3%83%9E%E3%82%A2%E3%83%BC%E3%83%90%E3%83%B3%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3&output=embed"
-          width="100%" height="100%" style="border:0;" loading="lazy"
+          src="https://www.google.com/maps?q=%E7%BE%8E%E8%82%8C%E5%86%8D%E7%94%9FSHYNELL%20%E5%B0%8F%E5%B1%B1%E5%B8%82%E4%B8%89%E5%B3%AF2-1-45&output=embed"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           title="SHYNELL 地図"></iframe>
       </div>
