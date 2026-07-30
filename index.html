@@ -119,6 +119,10 @@
   }
   .mobile-nav.open{ transform:translateY(0); }
   .mobile-nav a{ font-family:'Shippori Mincho',serif; font-size:22px; }
+  .mobile-nav-close{
+    position:absolute; top:26px; right:24px; color:var(--ink);
+    padding:8px; cursor:pointer; z-index:110;
+  }
   .ig-link{ color:var(--ink-soft); display:flex; align-items:center; transition:color .25s ease; }
   .ig-link:hover{ color:var(--brass); }
 
@@ -261,6 +265,9 @@
   .ba-cell img{ width:100%; height:100%; object-fit:cover; object-position:center center; display:block; }
   .brand-graphic{ margin-top:50px; text-align:center; }
   .brand-graphic img{ max-width:420px; width:100%; border:1px solid var(--hairline); }
+  .ba-hero{ border:1px solid var(--hairline); overflow:hidden; margin-bottom:2px; }
+  .ba-hero img{ width:100%; display:block; }
+  .ba-hero-cap{ text-align:center; padding:14px 0 0; font-size:12px; letter-spacing:0.08em; color:var(--ink-soft); }
   .voice{
     margin-top:60px; max-width:640px; padding:40px 44px;
     background:var(--ivory); border-left:2px solid var(--brass);
@@ -359,6 +366,9 @@
 </header>
 
 <div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-close" id="mobileNavClose" aria-label="閉じる">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </div>
   <a href="#concept">コンセプト</a>
   <a href="#menu">メニュー</a>
   <a href="#results">お客様の声</a>
@@ -584,6 +594,11 @@
       <div class="eyebrow">Results</div>
       <h2>選ばれる理由。</h2>
     </div>
+    <div class="ba-hero reveal">
+      <img src="images/results-hero-before-after.jpg" alt="SHYNELL ビフォーアフター 肌トラブル・大人ニキビ ハーブピーリング">
+      <div class="ba-hero-cap">BEFORE → AFTER ｜ ハーブピーリング（肌トラブル・大人ニキビ）</div>
+    </div>
+
     <div class="ba-row reveal">
       <div class="ba-cell">
         <img src="images/results-before.jpg" alt="HAAB 製品">
@@ -760,6 +775,7 @@
   const burger = document.getElementById('burger');
   const mobileNav = document.getElementById('mobileNav');
   burger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+  document.getElementById('mobileNavClose').addEventListener('click', () => mobileNav.classList.remove('open'));
   mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
 
   const io = new IntersectionObserver((entries) => {
