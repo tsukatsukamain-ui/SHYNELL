@@ -11,19 +11,22 @@
 <meta property="og:url" content="https://shynell.jp/">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ivory:#FAF6EF;
-    --ink:#2A2620;
-    --ink-soft:#5A5347;
+    --ivory:#FFFFFF;
+    --ink:#211D18;
+    --ink-soft:#48423A;
     --brass:#9C7A3C;
     --brass-light:#C9A968;
     --moss:#55624A;
-    --hairline:#E2D8C3;
-    --card:#F3EEE3;
+    --hairline:#E7E2D5;
+    --card:#F7F6F2;
     --max:1180px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -102,6 +105,7 @@
 
   .burger{ display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:110; }
   .burger span{ width:24px; height:1px; background:var(--ink); display:block; transition:.3s; }
+  .header-icons{ display:flex; align-items:center; gap:18px; }
 
   @media(max-width:860px){
     nav.desktop-nav{ display:none; }
@@ -115,6 +119,8 @@
   }
   .mobile-nav.open{ transform:translateY(0); }
   .mobile-nav a{ font-family:'Shippori Mincho',serif; font-size:22px; }
+  .ig-link{ color:var(--ink-soft); display:flex; align-items:center; transition:color .25s ease; }
+  .ig-link:hover{ color:var(--brass); }
 
   /* ---------- BOTANICAL SIGNATURE LINE (desktop) ---------- */
   .thread{
@@ -338,12 +344,17 @@
       <a href="#concept">コンセプト</a>
       <a href="#menu">メニュー</a>
       <a href="#results">お客様の声</a>
-      <a href="#shop">SHOP</a>
-      <a href="#faq">FAQ</a>
+      <a href="#shop">オンラインストア</a>
+      <a href="#faq">よくある質問</a>
       <a href="#access">アクセス</a>
-      <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="cta-pill solid">ご予約はこちら</a>
+      <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="cta-pill solid">ホットペッパーで予約</a>
     </nav>
-    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    <div class="header-icons">
+      <a href="https://www.instagram.com/shynell._beauty/" target="_blank" rel="noopener" aria-label="Instagram" class="ig-link">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      </a>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </div>
   </div>
 </header>
 
@@ -351,10 +362,11 @@
   <a href="#concept">コンセプト</a>
   <a href="#menu">メニュー</a>
   <a href="#results">お客様の声</a>
-  <a href="#shop">SHOP</a>
-  <a href="#faq">FAQ</a>
+  <a href="#shop">オンラインストア</a>
+  <a href="#faq">よくある質問</a>
   <a href="#access">アクセス</a>
-  <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="cta-pill solid">ご予約はこちら</a>
+  <a href="https://www.instagram.com/shynell._beauty/" target="_blank" rel="noopener" style="font-size:16px;">Instagram はこちら</a>
+  <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="cta-pill solid">ホットペッパーで予約</a>
 </div>
 
 <!-- HERO -->
@@ -368,7 +380,7 @@
     <p class="hero-sub">シミ・シワ・たるみ・毛穴——加齢とともに変化する肌に、<br class="br-d">
       カウンセリングと再現性のある施術で本気で向き合うサロンです。</p>
     <div class="hero-ctas">
-      <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="cta-pill solid">ご予約はこちら</a>
+      <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="cta-pill solid">ホットペッパーで予約</a>
       <a href="#menu" class="cta-pill">メニューを見る</a>
     </div>
     <div class="hero-meta garamond">Facial &amp; Body Treatment<br>By Appointment Only</div>
@@ -663,7 +675,7 @@
 <section id="faq" class="concept">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">FAQ</div>
+      <div class="eyebrow">よくある質問</div>
       <h2>よくあるご質問</h2>
     </div>
 
