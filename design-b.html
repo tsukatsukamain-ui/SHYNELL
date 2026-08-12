@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHYNELL | 美肌再生エステサロン - 栃木県小山市</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --sumi:#14120F;
+    --sumi-soft:#4A443C;
+    --brass:#8E6C34;
+    --brass-lt:#BE9A5C;
+    --stone:#F4F2ED;
+    --hair:#E4DFD4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper); color:var(--sumi);
+    font-family:'Zen Kaku Gothic New',sans-serif; font-weight:400;
+    line-height:2; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  .min{ font-family:'Shippori Mincho',serif; }
+  .cor{ font-family:'Cormorant Garamond',serif; }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{ max-width:1240px; margin:0 auto; padding:0 40px; }
+  @media(max-width:700px){ .wrap{ padding:0 22px; } }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    padding:26px 0; mix-blend-mode:difference;
+    transition:padding .4s ease;
+  }
+  header .wrap{ display:flex; align-items:center; justify-content:space-between; }
+  .logo{ font-family:'Cormorant Garamond',serif; font-size:25px; letter-spacing:0.3em; color:#fff; }
+  .menu-btn{ display:flex; align-items:center; gap:12px; color:#fff; cursor:pointer; font-size:11px; letter-spacing:0.25em; }
+  .menu-btn .bars{ display:flex; flex-direction:column; gap:4px; }
+  .menu-btn .bars i{ width:22px; height:1px; background:#fff; display:block; }
+
+  .overlay{
+    position:fixed; inset:0; background:var(--sumi); z-index:300;
+    display:flex; align-items:center; justify-content:center;
+    clip-path:circle(0% at 100% 0); transition:clip-path .7s cubic-bezier(.7,0,.3,1);
+  }
+  .overlay.open{ clip-path:circle(150% at 100% 0); }
+  .overlay nav{ display:flex; flex-direction:column; gap:22px; text-align:center; }
+  .overlay nav a{ font-family:'Shippori Mincho',serif; font-size:26px; color:#fff; position:relative; }
+  .overlay nav a small{ display:block; font-family:'Cormorant Garamond',serif; font-size:11px; letter-spacing:0.3em; color:var(--brass-lt); margin-top:2px; }
+  .overlay .x{ position:absolute; top:30px; right:38px; color:#fff; cursor:pointer; font-size:30px; line-height:1; }
+
+  /* ---------- HERO : asymmetric split ---------- */
+  .hero{ display:grid; grid-template-columns:1.05fr 1fr; min-height:100svh; }
+  @media(max-width:860px){ .hero{ grid-template-columns:1fr; } }
+  .hero-img{ position:relative; overflow:hidden; background:var(--stone); }
+  .hero-img img{ width:100%; height:100%; object-fit:cover; }
+  @media(max-width:860px){ .hero-img{ height:62svh; } }
+  .hero-txt{
+    display:flex; flex-direction:column; justify-content:center;
+    padding:90px 70px; position:relative;
+  }
+  @media(max-width:860px){ .hero-txt{ padding:60px 26px 80px; } }
+  .hero-txt .vert{
+    position:absolute; top:110px; right:44px;
+    writing-mode:vertical-rl; font-family:'Shippori Mincho',serif;
+    font-size:12px; letter-spacing:0.5em; color:var(--brass);
+  }
+  @media(max-width:860px){ .hero-txt .vert{ display:none; } }
+  .hero-txt h1{
+    font-family:'Shippori Mincho',serif; font-weight:600;
+    font-size:clamp(38px,4.4vw,62px); line-height:1.45; letter-spacing:0.02em;
+  }
+  .hero-txt h1 em{ font-style:normal; color:var(--brass); }
+  .hero-lead{ margin-top:30px; font-size:14.5px; color:var(--sumi-soft); max-width:400px; line-height:2.1; }
+  .hero-meta{
+    margin-top:44px; padding-top:24px; border-top:1px solid var(--hair);
+    display:flex; gap:30px; flex-wrap:wrap; font-size:11.5px; letter-spacing:0.12em; color:var(--sumi-soft);
+  }
+  .hero-cta{ margin-top:36px; }
+  .lnk{
+    display:inline-flex; align-items:center; gap:12px;
+    font-size:12.5px; letter-spacing:0.18em; color:var(--sumi);
+    border-bottom:1px solid var(--sumi); padding-bottom:7px;
+    transition:gap .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .lnk:hover{ gap:20px; color:var(--brass); border-color:var(--brass); }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:130px 0; }
+  @media(max-width:700px){ section{ padding:84px 0; } }
+  .sec-num{
+    font-family:'Cormorant Garamond',serif; font-size:13px;
+    letter-spacing:0.3em; color:var(--brass);
+  }
+  .sec-ttl{
+    font-family:'Shippori Mincho',serif; font-weight:600;
+    font-size:clamp(26px,3.2vw,40px); line-height:1.5; margin-top:14px;
+  }
+  .rule{ width:100%; height:1px; background:var(--hair); margin:26px 0 54px; }
+
+  /* ---------- CONCEPT : offset editorial ---------- */
+  .concept-grid{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:80px; align-items:start; }
+  @media(max-width:860px){ .concept-grid{ grid-template-columns:1fr; gap:44px; } }
+  .concept-body p{ font-size:15px; color:var(--sumi-soft); margin-bottom:22px; line-height:2.2; }
+  .tagline{
+    font-family:'Shippori Mincho',serif; font-size:clamp(19px,2vw,25px);
+    line-height:2; color:var(--sumi); margin-bottom:30px;
+  }
+  .chips{ display:flex; flex-wrap:wrap; gap:9px; margin-top:34px; }
+  .chips span{ font-size:12px; padding:7px 17px; border:1px solid var(--hair); border-radius:2px; color:var(--sumi-soft); letter-spacing:0.06em; }
+
+  /* ---------- OWNER : full bleed dark ---------- */
+  .owner{ background:var(--sumi); color:#fff; padding:0; }
+  .owner-grid{ display:grid; grid-template-columns:1fr 1fr; align-items:stretch; }
+  @media(max-width:860px){ .owner-grid{ grid-template-columns:1fr; } }
+  .owner-photo{ min-height:520px; overflow:hidden; }
+  .owner-photo img{ width:100%; height:100%; object-fit:cover; object-position:center 22%; }
+  .owner-body{ padding:100px 70px; display:flex; flex-direction:column; justify-content:center; }
+  @media(max-width:860px){ .owner-body{ padding:64px 26px; } .owner-photo{ min-height:400px; } }
+  .owner-body .sec-num{ color:var(--brass-lt); }
+  .owner-body h2{ font-family:'Shippori Mincho',serif; font-size:30px; margin-top:14px; font-weight:600; }
+  .owner-body .role{ font-size:11.5px; letter-spacing:0.22em; color:var(--brass-lt); margin-top:10px; }
+  .owner-body p{ margin-top:28px; font-size:14.5px; color:#C9C3B8; line-height:2.2; }
+
+  /* ---------- MENU : editorial index ---------- */
+  .m-group{ margin-bottom:74px; }
+  .m-group:last-child{ margin-bottom:0; }
+  .m-head{ display:flex; align-items:baseline; gap:18px; margin-bottom:8px; }
+  .m-head h3{ font-family:'Shippori Mincho',serif; font-size:21px; font-weight:600; }
+  .m-head small{ font-family:'Cormorant Garamond',serif; font-size:12px; letter-spacing:0.28em; color:var(--brass); }
+  .m-row{
+    display:grid; grid-template-columns:1fr auto; gap:34px;
+    padding:26px 0; border-top:1px solid var(--hair); align-items:start;
+  }
+  .m-row:last-child{ border-bottom:1px solid var(--hair); }
+  .m-name{ font-size:16.5px; font-weight:500; letter-spacing:0.02em; }
+  .m-name span{ font-size:11px; color:var(--brass); letter-spacing:0.16em; margin-left:10px; }
+  .m-time{ font-family:'Cormorant Garamond',serif; font-size:12.5px; color:var(--sumi-soft); letter-spacing:0.12em; margin-top:5px; }
+  .m-desc{ font-size:12.5px; color:var(--sumi-soft); margin-top:11px; line-height:1.95; max-width:560px; }
+  .m-price{ text-align:right; white-space:nowrap; }
+  .m-price b{ font-family:'Cormorant Garamond',serif; font-weight:400; font-size:25px; letter-spacing:0.02em; }
+  .m-price i{ display:block; font-style:normal; font-size:10.5px; color:var(--sumi-soft); margin-top:4px; letter-spacing:0.05em; }
+
+  /* ---------- PROOF : full bleed BA ---------- */
+  .proof{ background:var(--stone); }
+  .ba-wide{ margin-top:8px; border:1px solid var(--hair); background:#fff; }
+  .ba-wide img{ width:100%; }
+  .ba-cap{ text-align:center; font-family:'Cormorant Garamond',serif; font-size:12px; letter-spacing:0.24em; color:var(--sumi-soft); padding:16px 0 0; }
+  .duo{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+  @media(max-width:640px){ .duo{ grid-template-columns:1fr; } }
+  .duo div{ aspect-ratio:4/3; overflow:hidden; border:1px solid var(--hair); }
+  .duo img{ width:100%; height:100%; object-fit:cover; }
+
+  .voices{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:64px; }
+  @media(max-width:860px){ .voices{ grid-template-columns:1fr; } }
+  .voice{ background:#fff; border:1px solid var(--hair); padding:34px 30px; }
+  .voice .stars{ color:var(--brass); font-size:12px; letter-spacing:0.2em; }
+  .voice p{ font-family:'Shippori Mincho',serif; font-size:14.5px; line-height:2.1; margin-top:16px; }
+  .voice .who{ margin-top:18px; font-size:11.5px; color:var(--sumi-soft); letter-spacing:0.06em; }
+
+  /* ---------- BRANDS ---------- */
+  .brands{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); }
+  @media(max-width:700px){ .brands{ grid-template-columns:1fr; } }
+  .brand{ background:#fff; padding:44px 40px; }
+  .brand .n{ font-family:'Cormorant Garamond',serif; font-size:12px; letter-spacing:0.28em; color:var(--brass); }
+  .brand h3{ font-family:'Shippori Mincho',serif; font-size:19px; margin-top:12px; font-weight:600; }
+  .brand p{ margin-top:12px; font-size:13px; color:var(--sumi-soft); line-height:2; }
+
+  /* ---------- SHOP ---------- */
+  .shop-grid{ display:grid; grid-template-columns:1fr 1fr; gap:34px; }
+  @media(max-width:640px){ .shop-grid{ grid-template-columns:1fr; } }
+  .shop-card .ph{ aspect-ratio:4/5; overflow:hidden; background:var(--stone); }
+  .shop-card .ph img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+  .shop-card:hover .ph img{ transform:scale(1.05); }
+  .shop-card h3{ margin-top:20px; font-size:15.5px; font-weight:500; }
+  .shop-card .go{ margin-top:7px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px; color:var(--brass); }
+
+  /* ---------- FAQ ---------- */
+  .faq details{ border-top:1px solid var(--hair); }
+  .faq details:last-of-type{ border-bottom:1px solid var(--hair); }
+  .faq summary{
+    list-style:none; cursor:pointer; padding:24px 4px;
+    display:flex; justify-content:space-between; gap:22px; align-items:center;
+    font-size:15.5px; font-weight:500;
+  }
+  .faq summary::-webkit-details-marker{ display:none; }
+  .faq summary::after{ content:'＋'; color:var(--brass); font-size:15px; flex-shrink:0; transition:transform .3s ease; }
+  .faq details[open] summary::after{ transform:rotate(45deg); }
+  .faq p{ padding:0 4px 26px; font-size:13.5px; color:var(--sumi-soft); line-height:2.1; max-width:760px; }
+
+  /* ---------- ACCESS ---------- */
+  .acc-grid{ display:grid; grid-template-columns:1fr 1.1fr; gap:60px; }
+  @media(max-width:860px){ .acc-grid{ grid-template-columns:1fr; gap:40px; } }
+  .row{ display:flex; gap:22px; padding:17px 0; border-bottom:1px solid var(--hair); font-size:14px; }
+  .row .k{ width:86px; flex-shrink:0; font-size:11.5px; letter-spacing:0.16em; color:var(--brass); padding-top:3px; }
+  .map{ position:relative; aspect-ratio:1/1; border:1px solid var(--hair); overflow:hidden; }
+  .map iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .btn-solid{
+    display:block; text-align:center; background:var(--sumi); color:#fff;
+    padding:19px; font-size:13px; letter-spacing:0.16em; margin-top:30px;
+    transition:background .3s ease;
+  }
+  .btn-solid:hover{ background:var(--brass); }
+  .btn-ghost{
+    display:block; text-align:center; border:1px solid var(--hair); color:var(--sumi);
+    padding:18px; font-size:13px; letter-spacing:0.16em; margin-top:11px;
+    transition:border-color .3s ease, color .3s ease;
+  }
+  .btn-ghost:hover{ border-color:var(--brass); color:var(--brass); }
+
+  footer{ background:var(--sumi); color:#8E877B; padding:70px 0 42px; text-align:center; }
+  footer .fm{ font-family:'Cormorant Garamond',serif; font-size:26px; letter-spacing:0.36em; color:#fff; }
+  footer .fl{ display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin-top:26px; font-size:12px; letter-spacing:0.1em; }
+  footer .fl a:hover{ color:var(--brass-lt); }
+  footer .fine{ margin-top:30px; font-size:10.5px; letter-spacing:0.08em; opacity:0.6; }
+
+  .rv{ opacity:0; transform:translateY(22px); transition:opacity .9s ease, transform .9s ease; }
+  .rv.in{ opacity:1; transform:none; }
+  @media(prefers-reduced-motion:reduce){ .rv{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;} }
+</style>
+</head>
+<body id="top">
+
+<header>
+  <div class="wrap">
+    <a href="#top" class="logo">SHYNELL</a>
+    <div class="menu-btn" id="menuBtn"><span>MENU</span><span class="bars"><i></i><i></i></span></div>
+  </div>
+</header>
+
+<div class="overlay" id="ov">
+  <div class="x" id="ovX">×</div>
+  <nav>
+    <a href="#concept">コンセプト<small>CONCEPT</small></a>
+    <a href="#owner">エステティシャン<small>ESTHETICIAN</small></a>
+    <a href="#menu">メニュー<small>MENU</small></a>
+    <a href="#proof">お客様の声<small>VOICE</small></a>
+    <a href="#shop">オンラインストア<small>STORE</small></a>
+    <a href="#faq">よくある質問<small>FAQ</small></a>
+    <a href="#access">アクセス<small>ACCESS</small></a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-img"><img src="images/concept-salon.jpg" alt="SHYNELL 店内"></div>
+  <div class="hero-txt">
+    <div class="vert">栃木県小山市 ｜ 完全予約制</div>
+    <h1>最近、肌の<br>調子<em>いいかも。</em></h1>
+    <p class="hero-lead">シミ・シワ・たるみ・毛穴・ニキビ。<br>年齢とともに変化する肌に、カウンセリングと<br>再現性のある施術で、本気で向き合うサロンです。</p>
+    <div class="hero-meta">
+      <span>CHRISTINA / HAAB 正規取扱</span>
+      <span>マンツーマン施術</span>
+      <span>10:00 – 22:00</span>
+    </div>
+    <div class="hero-cta">
+      <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="lnk">ホットペッパーで予約する →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section id="concept">
+  <div class="wrap">
+    <div class="concept-grid">
+      <div class="rv">
+        <div class="sec-num">01 — CONCEPT</div>
+        <h2 class="sec-ttl">肌に、本気で<br>向き合う。</h2>
+      </div>
+      <div class="concept-body rv">
+        <p class="tagline">「なんとなくのケア」で、<br>終わらせない。</p>
+        <p>お一人おひとりの肌質・悩み・生活習慣を丁寧にカウンセリングした上で、今の肌に本当に必要な施術を組み立てます。</p>
+        <p>その場限りの満足で終わらない、続けるほどに変化を実感できるケアを。マンツーマンだからこそできる、専門性の高い施術をお届けします。</p>
+        <div class="chips">
+          <span>シミ</span><span>シワ</span><span>たるみ</span><span>毛穴</span><span>くすみ</span><span>乾燥</span><span>ニキビ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OWNER -->
+<section class="owner" id="owner">
+  <div class="owner-grid">
+    <div class="owner-photo"><img src="images/owner-ochiai.jpg" alt="SHYNELL オーナー"></div>
+    <div class="owner-body">
+      <div class="sec-num">02 — ESTHETICIAN</div>
+      <h2>落合 雅</h2>
+      <div class="role">SHYNELL ／ オーナーエステティシャン</div>
+      <p>［なぜCHRISTINA・HAABを選んだのか、施術で大切にしていること——ご本人の言葉をここに反映予定］</p>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-num">03 — MENU</div>
+      <h2 class="sec-ttl">メニュー</h2>
+    </div>
+    <div class="rule"></div>
+
+    <div class="m-group rv">
+      <div class="m-head"><h3>フェイシャル</h3><small>FACIAL</small></div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">アンストレス<span>CHRISTINA</span></div>
+          <div class="m-time">90 MIN</div>
+          <div class="m-desc">繰り返す赤み・乾燥・肌荒れを鎮静しながら、たっぷり水分補給。敏感になったお肌を優しく整え、ぷるんとした水光肌へ導きます。ゆらぎやすい方・乾燥でメイクノリが悪い方にも◎</div>
+        </div>
+        <div class="m-price"><b>¥9,900</b><i>初回 ／ 2回目以降 ¥15,500</i></div>
+      </div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">ビオフィート<span>CHRISTINA</span></div>
+          <div class="m-time">90 MIN</div>
+          <div class="m-desc">天然ハーブを使用した、剥離のないハーブピーリング。古い角質や毛穴詰まりをすっきりオフし、ざらつき・黒ずみ・ニキビ肌を整えます。</div>
+        </div>
+        <div class="m-price"><b>¥8,800</b><i>初回 ／ 2回目以降 ¥14,500</i></div>
+      </div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">イラストリアス<span>CHRISTINA</span></div>
+          <div class="m-time">90 MIN</div>
+          <div class="m-desc">透明感を即座に感じたい方、くすみやシミにアプローチ。美容成分たっぷりのビタミンCピーリングで日頃の紫外線を受けた肌に◎厚塗りをしなくても大丈夫な肌に。</div>
+        </div>
+        <div class="m-price"><b>¥9,900</b><i>初回 ／ 2回目以降 ¥15,500</i></div>
+      </div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">ハーブリプロ<span>HAAB REPRO</span></div>
+          <div class="m-time">60 MIN</div>
+          <div class="m-desc">天然海洋成分100%のピーリングでターンオーバーを促進。ニキビ・ニキビ跡・シミ・毛穴・たるみなど幅広い肌悩みに。※ダウンタイムあり（詳しくはFAQをご覧ください）</div>
+        </div>
+        <div class="m-price"><b>¥14,500</b><i>初回 ／ 2回目以降 ¥22,000</i></div>
+      </div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">エピダーマルスキン<span>HAAB SKIN</span></div>
+          <div class="m-time">60 MIN</div>
+          <div class="m-desc">50億個のエクソソームを導入し、若返りを取り戻す再生ケア。しわ・たるみ・しみなど幅広い肌悩みに対応し、ハリ・ツヤ・透明感のある若々しい素肌へ。</div>
+        </div>
+        <div class="m-price"><b>¥14,500</b><i>初回 ／ 2回目以降 ¥22,000</i></div>
+      </div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">時短アンストレス<span>CHRISTINA</span></div>
+          <div class="m-time">45 MIN</div>
+          <div class="m-desc">仕事帰りやスキマ時間に。乾燥や外的ストレスを受けたお肌をやさしく整え、短時間でも水光感のあるツヤ肌へ。</div>
+        </div>
+        <div class="m-price"><b>¥7,700</b></div>
+      </div>
+    </div>
+
+    <div class="m-group rv">
+      <div class="m-head"><h3>ボディ</h3><small>BODY</small></div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">ハーブラセール（全身）<span>HAAB LA SERRE</span></div>
+          <div class="m-time">90 MIN</div>
+          <div class="m-desc">ハーブラセールオイル使用。オールハンドによる手技で全身のリンパをしっかり流し巡りを良くする。むくみやコリを解消しスッキリ軽い体へ導くトリートメント。</div>
+        </div>
+        <div class="m-price"><b>¥15,800</b><i>初回 ／ 2回目以降 ¥19,800</i></div>
+      </div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">ハーブラセール（背面）<span>HAAB LA SERRE</span></div>
+          <div class="m-time">50 MIN</div>
+          <div class="m-desc">滞ったリンパや老廃物をオールハンドで流し、むくみやコリを解消へ導くボディケア。オーガニックオイルで深部までしっかりほぐし巡りを整え血行促進。冷えやだるさを軽減し、軽くスッキリとした体へ導きます。</div>
+        </div>
+        <div class="m-price"><b>¥9,400</b><i>初回 ／ 2回目以降 ¥12,400</i></div>
+      </div>
+    </div>
+
+    <div class="m-group rv">
+      <div class="m-head"><h3>背中ケア</h3><small>BACK</small></div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">背中ハーブリプロ<span>HAAB REPRO</span></div>
+          <div class="m-desc">背中のニキビ・跡・ざらつき・色素沈着を集中ケア。背中の開いたお洋服も自信を持って着られる、なめらかな素肌へ。</div>
+        </div>
+        <div class="m-price"><b>¥33,000</b></div>
+      </div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">背中クリスティーナ<span>CHRISTINA</span></div>
+          <div class="m-desc">アンストレス／イラストリアスは赤み・美白ケアに。ビオフィートは背中のざらつき・毛穴詰まり・ニキビにアプローチし、ツルすべ肌へ。</div>
+        </div>
+        <div class="m-price"><b>¥15,500</b><i>〜 ¥16,500</i></div>
+      </div>
+    </div>
+
+    <div class="m-group rv">
+      <div class="m-head"><h3>オプション</h3><small>ADD-ON</small></div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">デコルテマッサージ</div>
+          <div class="m-time">+30 MIN</div>
+          <div class="m-desc">首・肩・デコルテのリンパを流し、むくみ解消＆リフトアップ。フェイシャルと同時に施術することで、フェイシャルの効果をアップさせる目的でもあります。</div>
+        </div>
+        <div class="m-price"><b>+¥3,000</b></div>
+      </div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">ひざ下リンパマッサージ</div>
+          <div class="m-time">+30 MIN</div>
+          <div class="m-desc">立ち仕事や冷え・むくみが気になる方に。足の重だるさを軽減しスッキリ軽やかに。</div>
+        </div>
+        <div class="m-price"><b>+¥3,000</b></div>
+      </div>
+      <div class="m-row">
+        <div>
+          <div class="m-name">二の腕リンパマッサージ</div>
+          <div class="m-time">+20 MIN</div>
+          <div class="m-desc">二の腕のむくみやたるみをケアし、すっきりとしたラインへ。ノースリーブやドレス前のケアとしても人気です。</div>
+        </div>
+        <div class="m-price"><b>+¥2,500</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof" id="proof">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-num">04 — RESULTS &amp; VOICE</div>
+      <h2 class="sec-ttl">変化は、<br>お客様の声とともに。</h2>
+    </div>
+    <div class="rule"></div>
+
+    <div class="ba-wide rv">
+      <img src="images/results-hero-before-after.jpg" alt="BEFORE AFTER ハーブピーリング">
+    </div>
+    <div class="ba-cap">BEFORE → AFTER ｜ HERB PEELING</div>
+
+    <div class="duo rv">
+      <div><img src="images/results-before.jpg" alt="HAAB 製品"></div>
+      <div><img src="images/results-after.jpg" alt="施術風景"></div>
+    </div>
+
+    <div class="voices">
+      <div class="voice rv">
+        <div class="stars">★★★★★</div>
+        <p>「保湿力や肌荒れ改善効果が高いクリスティーナが気になり、初めて利用させて頂きました。カウンセリングで自分の肌質に合ったメニューをご提案いただき、施術後は肌ツヤやうるおいを実感。都内に行かなくても近場でこの施術が受けられるのが嬉しいです。」</p>
+        <div class="who">女性・20代前半</div>
+      </div>
+      <div class="voice rv">
+        <div class="stars">★★★★★</div>
+        <p>「エステが初めてで緊張しましたが、雰囲気も良く、担当の方も優しかったので大変満足しました。」</p>
+        <div class="who">男性・40代</div>
+      </div>
+      <div class="voice rv">
+        <div class="stars">★★★★★</div>
+        <p>「妊娠中でもできるハーブピーリングをして頂きました。施術後は気になっていた毛穴がツルツルになり、顔のむくみもすっきり。心地よい空間でついウトウトしてしまうほどでした。」</p>
+        <div class="who">女性・20代前半</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section id="brands">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-num">05 — APPROACH</div>
+      <h2 class="sec-ttl">選ばれる、理由。</h2>
+    </div>
+    <div class="rule"></div>
+    <div class="brands rv">
+      <div class="brand">
+        <div class="n">01</div>
+        <h3>CHRISTINA</h3>
+        <p>1982年イスラエル生まれ、皮膚科医が開発したドクターズコスメ。有効成分をマイクロカプセル化し、肌の深部までゆっくり届ける独自技術で、肌悩みに合わせたトリートメントをご提案。</p>
+      </div>
+      <div class="brand">
+        <div class="n">02</div>
+        <h3>HAAB REPRO</h3>
+        <p>「浸透させる」だけでなく肌細胞そのものを活性化させる、日本抗老学会認定のピーリング技術。開発から15年、大きな肌トラブルゼロという安全性を貫いています。</p>
+      </div>
+      <div class="brand">
+        <div class="n">03</div>
+        <h3>HAAB SKIN</h3>
+        <p>クリニック監修、医療分野でも使われるエクソソームを高濃度配合。年齢や外的ダメージで乱れた肌のコンディションを整えます。</p>
+      </div>
+      <div class="brand">
+        <div class="n">04</div>
+        <h3>HAAB LA SERRE</h3>
+        <p>南フランス生まれ、2ヶ国でオーガニック認証を取得したボディオイル。植物療法の専門家と共同開発された、巡りを整えるボディメソッド。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section id="shop" style="background:var(--stone);">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-num">06 — ONLINE STORE</div>
+      <h2 class="sec-ttl">ホームケア</h2>
+    </div>
+    <div class="rule"></div>
+    <div class="shop-grid rv">
+      <a href="https://shynell6022.base.shop/" target="_blank" rel="noopener" class="shop-card">
+        <div class="ph"><img src="images/shop-christina-line-repair.jpg" alt="CHRISTINA LINE REPAIR"></div>
+        <h3>CHRISTINA LINE REPAIR</h3>
+        <div class="go">Shop on BASE →</div>
+      </a>
+      <a href="https://shynell6022.base.shop/" target="_blank" rel="noopener" class="shop-card">
+        <div class="ph"><img src="images/shop-haab-plus-cleansing.jpg" alt="HAAB PLUS プレミアムクレンジングジェル"></div>
+        <h3>HAAB PLUS プレミアムクレンジングジェル</h3>
+        <div class="go">Shop on BASE →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-num">07 — FAQ</div>
+      <h2 class="sec-ttl">よくあるご質問</h2>
+    </div>
+    <div class="rule"></div>
+    <div class="faq rv">
+      <details>
+        <summary>ハーブリプロにダウンタイムはありますか？</summary>
+        <p>1〜2日目は赤み・腫れ・むくみが出る場合があります（お肌が反応しているサインです）。3〜4日目は古い角質が剥離し乾燥・かさつきが目立つことがありますが、無理に剥がさず保湿を。5〜6日目には、なめらかな新しい素肌を実感いただけます。翌日から洗顔・メイクは可能です。</p>
+      </details>
+      <details>
+        <summary>エステが初めてでも大丈夫ですか？</summary>
+        <p>はい、ご安心ください。施術前に丁寧なカウンセリングを行い、お一人おひとりの肌質やご希望に合わせてメニューをご提案しています。初めての方も多くご来店いただいています。</p>
+      </details>
+      <details>
+        <summary>妊娠中でも施術は受けられますか？</summary>
+        <p>妊娠中の方にもご案内できるメニューがございます。時期やお身体の状態によってご提案内容が変わりますので、まずはお気軽にご相談ください。</p>
+      </details>
+      <details>
+        <summary>どのくらいの頻度で通うのがおすすめですか？</summary>
+        <p>肌質やお悩みによって最適なペースは異なります。カウンセリング時に、お一人おひとりに合わせた通い方をご提案しています。</p>
+      </details>
+      <details>
+        <summary>商品だけの購入もできますか？</summary>
+        <p>はい、<a href="https://shynell6022.base.shop/" target="_blank" rel="noopener" style="color:var(--brass);text-decoration:underline;">オンラインショップ（BASE）</a>よりホームケアアイテムのみのご購入も可能です。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section id="access">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-num">08 — ACCESS</div>
+      <h2 class="sec-ttl">ご予約・アクセス</h2>
+    </div>
+    <div class="rule"></div>
+    <div class="acc-grid">
+      <div class="rv">
+        <div class="row"><div class="k">ADDRESS</div><div>〒323-0821<br>栃木県小山市三峯2丁目1-45<br>オヤマアーバンコネクション 402</div></div>
+        <div class="row"><div class="k">OPEN</div><div>10:00 – 22:00</div></div>
+        <div class="row"><div class="k">CLOSED</div><div>不定休</div></div>
+        <div class="row"><div class="k">RESERVE</div><div>ホットペッパービューティーより承っております</div></div>
+        <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="btn-solid">ホットペッパーで予約する</a>
+        <a href="https://www.instagram.com/shynell._beauty/" target="_blank" rel="noopener" class="btn-ghost">Instagram を見る</a>
+        <a href="https://shynell6022.base.shop/" target="_blank" rel="noopener" class="btn-ghost">オンラインストア（BASE）</a>
+      </div>
+      <div class="map rv">
+        <iframe src="https://www.google.com/maps?q=%E7%BE%8E%E8%82%8C%E5%86%8D%E7%94%9FSHYNELL%20%E5%B0%8F%E5%B1%B1%E5%B8%82%E4%B8%89%E5%B3%AF2-1-45&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="SHYNELL 地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fm">SHYNELL</div>
+    <div class="fl">
+      <a href="https://www.instagram.com/shynell._beauty/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener">ホットペッパービューティー</a>
+      <a href="https://shynell6022.base.shop/" target="_blank" rel="noopener">オンラインストア</a>
+    </div>
+    <div class="fine">© SHYNELL ｜ Private Esthetic Salon, Oyama Tochigi</div>
+  </div>
+</footer>
+
+<script>
+  const ov = document.getElementById('ov');
+  document.getElementById('menuBtn').addEventListener('click', ()=> ov.classList.add('open'));
+  document.getElementById('ovX').addEventListener('click', ()=> ov.classList.remove('open'));
+  ov.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> ov.classList.remove('open')));
+
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:0.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
