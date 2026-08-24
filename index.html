@@ -42,6 +42,8 @@
   .menu-btn{ display:flex; align-items:center; gap:12px; color:#fff; cursor:pointer; font-size:11px; letter-spacing:0.25em; }
   .menu-btn .bars{ display:flex; flex-direction:column; gap:4px; }
   .menu-btn .bars i{ width:22px; height:1px; background:#fff; display:block; }
+  .head-right{ display:flex; align-items:center; gap:22px; }
+  .ig-head{ color:#fff; display:flex; align-items:center; }
 
   .overlay{
     position:fixed; inset:0; background:var(--sumi); z-index:300;
@@ -89,6 +91,33 @@
     transition:gap .3s ease, color .3s ease, border-color .3s ease;
   }
   .lnk:hover{ gap:20px; color:var(--brass); border-color:var(--brass); }
+
+  /* ---------- CAMPAIGN ---------- */
+  .cp-badge{
+    display:inline-flex; align-items:center; gap:9px; margin-bottom:24px;
+    border:1px solid var(--brass); padding:7px 15px;
+    font-size:11.5px; letter-spacing:0.1em; color:var(--brass);
+  }
+  .cp-badge b{ font-weight:500; }
+  .campaign{ background:var(--sumi); color:#fff; }
+  .cp-grid{ display:grid; grid-template-columns:1.25fr 1fr; gap:56px; align-items:center; }
+  @media(max-width:860px){ .cp-grid{ grid-template-columns:1fr; gap:34px; } }
+  .cp-visual{ border:1px solid rgba(255,255,255,0.14); overflow:hidden; }
+  .cp-visual img{ width:100%; }
+  .cp-body .sec-num{ color:var(--brass-lt); }
+  .cp-body h2{ font-family:'Shippori Mincho',serif; font-size:clamp(24px,2.6vw,32px); font-weight:600; margin-top:14px; line-height:1.55; }
+  .cp-body .lead{ margin-top:22px; font-size:14px; color:#C9C3B8; line-height:2.1; }
+  .cp-item{ margin-top:26px; padding:20px 22px; border:1px solid rgba(255,255,255,0.16); }
+  .cp-item .nm{ font-size:14.5px; }
+  .cp-item .pr{ font-family:'Cormorant Garamond',serif; font-size:22px; margin-top:6px; color:var(--brass-lt); }
+  .cp-notes{ margin-top:22px; font-size:12.5px; color:#A9A297; line-height:2; }
+  .cp-notes li{ list-style:none; padding-left:16px; position:relative; }
+  .cp-notes li::before{ content:'—'; position:absolute; left:0; color:var(--brass-lt); }
+  .cp-cta{
+    display:inline-block; margin-top:26px; border:1px solid var(--brass-lt); color:var(--brass-lt);
+    padding:14px 26px; font-size:12.5px; letter-spacing:0.14em; transition:background .3s ease,color .3s ease;
+  }
+  .cp-cta:hover{ background:var(--brass-lt); color:var(--sumi); }
 
   /* ---------- SECTION SHELL ---------- */
   section{ padding:130px 0; }
@@ -255,13 +284,19 @@
 <header>
   <div class="wrap">
     <a href="#top" class="logo">SHYNELL</a>
-    <div class="menu-btn" id="menuBtn"><span>MENU</span><span class="bars"><i></i><i></i></span></div>
+    <div class="head-right">
+      <a href="https://www.instagram.com/shynell._beauty/" target="_blank" rel="noopener" aria-label="Instagram" class="ig-head">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      </a>
+      <div class="menu-btn" id="menuBtn"><span>MENU</span><span class="bars"><i></i><i></i></span></div>
+    </div>
   </div>
 </header>
 
 <div class="overlay" id="ov">
   <div class="x" id="ovX">×</div>
   <nav>
+    <a href="#campaign">キャンペーン<small>CAMPAIGN</small></a>
     <a href="#concept">コンセプト<small>CONCEPT</small></a>
     <a href="#owner">エステティシャン<small>ESTHETICIAN</small></a>
     <a href="#menu">メニュー<small>MENU</small></a>
@@ -269,6 +304,7 @@
     <a href="#shop">オンラインストア<small>STORE</small></a>
     <a href="#faq">よくある質問<small>FAQ</small></a>
     <a href="#access">アクセス<small>ACCESS</small></a>
+    <a href="https://www.instagram.com/shynell._beauty/" target="_blank" rel="noopener">Instagram<small>@shynell._beauty</small></a>
   </nav>
 </div>
 
@@ -277,6 +313,7 @@
   <div class="hero-img"><img src="images/hero-shop.jpg" alt="SHYNELL 店内"></div>
   <div class="hero-txt">
     <div class="vert">栃木県小山市 ｜ 完全予約制</div>
+    <a href="#campaign" class="cp-badge"><b>数量限定キャンペーン実施中</b> ／ 8.07 → 9.06</a>
     <h1>最近、肌の<br>調子<em>いいかも。</em></h1>
     <p class="hero-lead">シミ・シワ・たるみ・毛穴・ニキビ。<br>年齢とともに変化する肌に、カウンセリングと<br>再現性のある施術で、本気で向き合うサロンです。</p>
     <div class="hero-meta">
@@ -286,6 +323,33 @@
     </div>
     <div class="hero-cta">
       <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="lnk">ホットペッパーで予約する →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPAIGN -->
+<section class="campaign" id="campaign">
+  <div class="wrap">
+    <div class="cp-grid">
+      <div class="cp-visual rv">
+        <img loading="lazy" src="images/campaign-serum.jpg" alt="CHRISTINA アンストレス トータルセレニティセラム ONE BUY ONE GET キャンペーン">
+      </div>
+      <div class="cp-body rv">
+        <div class="sec-num">CAMPAIGN — 数量限定</div>
+        <h2>1本ご購入で、<br>もう1本プレゼント。</h2>
+        <p class="lead">CHRISTINA 8周年を記念した「ONE BUY ONE GET」キャンペーン。紫外線・冷房・汗で、お肌のバリア機能が乱れやすい夏に。うるおいを与えながら、健やかな状態へ導く人気の美容液です。</p>
+        <div class="cp-item">
+          <div class="nm">CHRISTINA アンストレス<br>トータルセレニティセラム 30ml</div>
+          <div class="pr">¥14,300<span style="font-size:11px;color:#A9A297;letter-spacing:0.05em;"> 税込</span></div>
+        </div>
+        <ul class="cp-notes">
+          <li>対象美容液1本のご購入で、同商品をもう1本プレゼント</li>
+          <li>期間：2026年8月7日（金）〜 9月6日（日）</li>
+          <li>数量限定・なくなり次第終了</li>
+          <li>店頭購入限定</li>
+        </ul>
+        <a href="https://line.me/R/ti/p/%40814iqvcu" target="_blank" rel="noopener" class="cp-cta">LINEで問い合わせ・お取り置き →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -313,7 +377,7 @@
 <!-- OWNER -->
 <section class="owner" id="owner">
   <div class="owner-grid">
-    <div class="owner-photo"><img src="images/owner.jpg" alt="SHYNELL オーナー"></div>
+    <div class="owner-photo"><img loading="lazy" src="images/owner.jpg" alt="SHYNELL オーナー"></div>
     <div class="owner-body">
       <div class="sec-num">02 — ESTHETICIAN</div>
       <h2>落合 雅</h2>
@@ -491,13 +555,13 @@
     <div class="rule"></div>
 
     <div class="ba-wide rv">
-      <img src="images/before-after.jpg" alt="BEFORE AFTER ハーブピーリング">
+      <img loading="lazy" src="images/before-after.jpg" alt="BEFORE AFTER ハーブピーリング">
     </div>
     <div class="ba-cap">BEFORE → AFTER ｜ HERB PEELING</div>
 
     <div class="duo rv">
-      <div><img src="images/haab-product.jpg" alt="HAAB 製品"></div>
-      <div><img src="images/treatment.jpg" alt="施術風景"></div>
+      <div><img loading="lazy" src="images/haab-product.jpg" alt="HAAB 製品"></div>
+      <div><img loading="lazy" src="images/treatment.jpg" alt="施術風景"></div>
     </div>
 
     <div class="voices">
@@ -563,12 +627,12 @@
     <div class="rule"></div>
     <div class="shop-grid rv">
       <a href="https://shynell6022.base.shop/" target="_blank" rel="noopener" class="shop-card">
-        <div class="ph"><img src="images/shop-line-repair.jpg" alt="CHRISTINA LINE REPAIR"></div>
+        <div class="ph"><img loading="lazy" src="images/shop-line-repair.jpg" alt="CHRISTINA LINE REPAIR"></div>
         <h3>CHRISTINA LINE REPAIR</h3>
         <div class="go">Shop on BASE →</div>
       </a>
       <a href="https://shynell6022.base.shop/" target="_blank" rel="noopener" class="shop-card">
-        <div class="ph"><img src="images/shop-cleansing-gel.jpg" alt="HAAB PLUS プレミアムクレンジングジェル"></div>
+        <div class="ph"><img loading="lazy" src="images/shop-cleansing-gel.jpg" alt="HAAB PLUS プレミアムクレンジングジェル"></div>
         <h3>HAAB PLUS プレミアムクレンジングジェル</h3>
         <div class="go">Shop on BASE →</div>
       </a>
