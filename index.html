@@ -88,10 +88,14 @@
     font-size:clamp(38px,4.4vw,62px); line-height:1.45; letter-spacing:0.02em;
   }
   .hero-txt h1 em{ font-style:normal; color:var(--brass); }
-  .hero-lead{ margin-top:22px; font-size:13.5px; color:var(--sumi-soft); max-width:340px; line-height:2; }
+  .hero-lead{ margin-top:22px; font-size:15.5px; color:var(--sumi-soft); max-width:360px; line-height:2; }
   .hero-catch{
     margin-top:22px; font-family:'Shippori Mincho',serif; font-weight:700;
     font-size:clamp(20px,2.6vw,28px); color:var(--brass); letter-spacing:0.01em; line-height:1.75;
+    white-space:nowrap;
+  }
+  @media(max-width:520px){
+    .hero-catch{ font-size:5.2vw; letter-spacing:0; }
   }
   .hero-meta{
     margin-top:44px; padding-top:24px; border-top:1px solid var(--hair);
@@ -191,14 +195,14 @@
     padding:26px 0; align-items:start; cursor:pointer; list-style:none;
   }
   .m-row summary::-webkit-details-marker{ display:none; }
-  .m-name{ font-size:16.5px; font-weight:500; letter-spacing:0.02em; }
+  .m-name{ font-family:'Shippori Mincho',serif; font-weight:600; font-size:17.5px; letter-spacing:0.02em; }
   .m-name span{ font-size:11px; color:var(--brass); letter-spacing:0.16em; margin-left:10px; }
   .m-time{ font-family:'Cormorant Garamond',serif; font-size:12.5px; color:var(--sumi-soft); letter-spacing:0.12em; margin-top:5px; }
   .m-time::after{ content:' ＋ more'; font-style:italic; color:var(--brass); }
   .m-row[open] .m-time::after{ content:' － close'; }
   .m-desc{ font-size:12.5px; color:var(--sumi-soft); padding-bottom:24px; line-height:1.95; max-width:560px; }
   .m-price{ text-align:right; white-space:nowrap; }
-  .m-price b{ font-family:'Cormorant Garamond',serif; font-weight:400; font-size:25px; letter-spacing:0.02em; }
+  .m-price b{ font-family:'Shippori Mincho',serif; font-weight:700; font-size:23px; letter-spacing:0.01em; color:var(--sumi); }
   .m-price i{ display:block; font-style:normal; font-size:10.5px; color:var(--sumi-soft); margin-top:4px; letter-spacing:0.05em; }
 
   /* ---------- PROOF : full bleed BA ---------- */
@@ -335,7 +339,7 @@
     <div class="vert">栃木県小山市 ｜ 完全予約制</div>
     <a href="campaign.html" class="cp-badge"><b>その乾燥、ただの水分不足じゃないかも？</b> 数量限定キャンペーン →</a>
     <h1>最近、肌の<br>調子<em>いいかも。</em></h1>
-    <div class="hero-catch">『ノーファンデでも<br>自信が持てる肌』へ。</div>
+    <div class="hero-catch">『ノーファンデでも自信が持てる肌』へ。</div>
     <p class="hero-lead">23歳が目指す、肌質改善サロン。シミ・シワ・たるみ・毛穴・ニキビに、本気で向き合います。</p>
     <div class="hero-meta">
       <span>CHRISTINA / HAAB 正規取扱</span>
