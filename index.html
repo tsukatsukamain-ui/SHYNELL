@@ -91,17 +91,16 @@
   .hero-lead{ margin-top:22px; font-size:15.5px; color:var(--sumi-soft); max-width:360px; line-height:2; }
   .hero-catch{
     margin-top:22px; font-family:'Shippori Mincho',serif; font-weight:700;
-    font-size:clamp(20px,2.6vw,28px); color:var(--brass); letter-spacing:0.01em; line-height:1.75;
-    white-space:nowrap;
+    font-size:clamp(20px,2.6vw,28px); color:var(--brass); letter-spacing:0.01em; line-height:1.6;
   }
   @media(max-width:520px){
-    .hero-catch{ font-size:5.2vw; letter-spacing:0; }
+    .hero-catch{ font-size:clamp(17px,4.6vw,22px); white-space:normal; }
   }
   .hero-meta{
     margin-top:44px; padding-top:24px; border-top:1px solid var(--hair);
     display:flex; gap:30px; flex-wrap:wrap; font-size:11.5px; letter-spacing:0.12em; color:var(--sumi-soft);
   }
-  .hero-cta{ margin-top:36px; }
+  .hero-cta{ margin-top:40px; display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
   .lnk{
     display:inline-flex; align-items:center; gap:12px;
     font-size:12.5px; letter-spacing:0.18em; color:var(--sumi);
@@ -109,6 +108,19 @@
     transition:gap .3s ease, color .3s ease, border-color .3s ease;
   }
   .lnk:hover{ gap:20px; color:var(--brass); border-color:var(--brass); }
+  .hero-btn{
+    display:inline-flex; align-items:center; gap:14px;
+    background:var(--sumi); color:#fff;
+    padding:21px 40px; font-size:14px; font-weight:500; letter-spacing:0.16em;
+    border-radius:2px; box-shadow:0 10px 26px rgba(42,38,32,0.18);
+    transition:background .3s ease, gap .3s ease, box-shadow .3s ease, transform .2s ease;
+  }
+  .hero-btn:hover{ background:var(--brass); gap:20px; box-shadow:0 12px 30px rgba(156,122,60,0.28); transform:translateY(-1px); }
+  .hero-sub{ font-size:11.5px; letter-spacing:0.14em; color:var(--sumi-soft); }
+  @media(max-width:520px){
+    .hero-cta{ flex-direction:column; align-items:flex-start; gap:14px; }
+    .hero-btn{ width:100%; justify-content:center; padding:19px 24px; }
+  }
 
   /* ---------- CAMPAIGN ---------- */
   .cp-badge{
@@ -272,6 +284,18 @@
   }
   .btn-ghost:hover{ border-color:var(--brass); color:var(--brass); }
 
+  .mid-cta{ background:var(--sumi); padding:44px 0; text-align:center; }
+  .mid-cta p{ color:#C9C3B8; font-size:13.5px; margin-bottom:18px; }
+  .mid-cta .btn-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .mid-cta .cta-solid{
+    background:var(--brass-lt); color:var(--sumi); padding:15px 28px;
+    font-size:13px; letter-spacing:0.12em; border-radius:2px;
+  }
+  .mid-cta .cta-ghost{
+    border:1px solid rgba(255,255,255,0.35); color:#fff; padding:14px 26px;
+    font-size:13px; letter-spacing:0.12em;
+  }
+
   footer{ background:var(--sumi); color:#8E877B; padding:70px 0 42px; text-align:center; }
   footer .fm{ font-family:'Cormorant Garamond',serif; font-size:26px; letter-spacing:0.36em; color:#fff; }
   footer .fl{ display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin-top:26px; font-size:12px; letter-spacing:0.1em; }
@@ -347,7 +371,11 @@
       <span>10:00 – 22:00</span>
     </div>
     <div class="hero-cta">
-      <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="lnk">ホットペッパーで予約する →</a>
+      <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="hero-btn">
+        ホットペッパーで予約する
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <span class="hero-sub">空き状況の確認・予約はこちらから</span>
     </div>
   </div>
 </section>
@@ -548,6 +576,16 @@
   </div>
 </section>
 
+<div class="mid-cta">
+  <div class="wrap">
+    <p>気になるメニューは見つかりましたか？</p>
+    <div class="btn-row">
+      <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="cta-solid">ホットペッパーで予約する</a>
+      <a href="https://line.me/R/ti/p/%40814iqvcu" target="_blank" rel="noopener" class="cta-ghost">LINEで相談する</a>
+    </div>
+  </div>
+</div>
+
 <!-- PROOF -->
 <section class="proof" id="proof">
   <div class="wrap">
@@ -586,6 +624,16 @@
     </div>
   </div>
 </section>
+
+<div class="mid-cta">
+  <div class="wrap">
+    <p>お客様の声を見て、気になった方へ</p>
+    <div class="btn-row">
+      <a href="https://beauty.hotpepper.jp/kr/slnH000767118/" target="_blank" rel="noopener" class="cta-solid">ホットペッパーで予約する</a>
+      <a href="https://line.me/R/ti/p/%40814iqvcu" target="_blank" rel="noopener" class="cta-ghost">LINEで相談する</a>
+    </div>
+  </div>
+</div>
 
 <!-- BRANDS -->
 <section id="brands">
