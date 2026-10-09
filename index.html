@@ -122,35 +122,6 @@
     .hero-btn{ width:100%; justify-content:center; padding:19px 24px; }
   }
 
-  /* ---------- CAMPAIGN ---------- */
-  .cp-badge{
-    display:inline-flex; align-items:center; gap:9px; margin-bottom:24px;
-    border:1px solid var(--brass); padding:7px 15px;
-    font-size:11.5px; letter-spacing:0.1em; color:var(--brass);
-  }
-  .cp-badge b{ font-weight:500; }
-  .campaign{ background:var(--sumi); color:#fff; padding:70px 0; }
-  .cp-grid{ display:grid; grid-template-columns:1.25fr 1fr; gap:56px; align-items:center; }
-  @media(max-width:860px){ .cp-grid{ grid-template-columns:1fr; gap:34px; } }
-  .cp-visual{ display:block; max-width:900px; margin:0 auto; border:1px solid rgba(255,255,255,0.14); overflow:hidden; }
-  .cp-visual img{ transition:transform .5s ease; }
-  .cp-visual:hover img{ transform:scale(1.03); }
-  .cp-visual img{ width:100%; }
-  .cp-body .sec-num{ color:var(--brass-lt); }
-  .cp-body h2{ font-family:'Shippori Mincho',serif; font-size:clamp(24px,2.6vw,32px); font-weight:600; margin-top:14px; line-height:1.55; }
-  .cp-body .lead{ margin-top:22px; font-size:14px; color:#C9C3B8; line-height:2.1; }
-  .cp-item{ margin-top:26px; padding:20px 22px; border:1px solid rgba(255,255,255,0.16); }
-  .cp-item .nm{ font-size:14.5px; }
-  .cp-item .pr{ font-family:'Cormorant Garamond',serif; font-size:22px; margin-top:6px; color:var(--brass-lt); }
-  .cp-notes{ margin-top:22px; font-size:12.5px; color:#A9A297; line-height:2; }
-  .cp-notes li{ list-style:none; padding-left:16px; position:relative; }
-  .cp-notes li::before{ content:'—'; position:absolute; left:0; color:var(--brass-lt); }
-  .cp-cta{
-    display:inline-block; margin-top:26px; border:1px solid var(--brass-lt); color:var(--brass-lt);
-    padding:14px 26px; font-size:12.5px; letter-spacing:0.14em; transition:background .3s ease,color .3s ease;
-  }
-  .cp-cta:hover{ background:var(--brass-lt); color:var(--sumi); }
-
   /* ---------- SECTION SHELL ---------- */
   section{ padding:130px 0; }
   @media(max-width:700px){ section{ padding:84px 0; } }
@@ -322,6 +293,44 @@
     body{ padding-bottom:62px; }
   }
 
+  /* ---------- JAPANESE LINE-BREAK QUALITY (all widths) ---------- */
+  body{ line-break:strict; word-break:auto-phrase; overflow-wrap:break-word; }
+  p, .m-time, .m-desc, .faq summary{ text-wrap:pretty; }
+  h1, h2, .hero-catch, .hero-lead, .tagline, .mid-cta p, .owner-body .closing{ text-wrap:balance; }
+  .np{ display:inline-block; }
+
+  /* ---------- MOBILE REFINEMENTS ---------- */
+  @media(max-width:600px){
+    body{ line-height:1.95; }
+    .hero-txt{ padding:44px 22px 64px; }
+    .hero-txt h1{ font-size:clamp(34px,10vw,42px); }
+    .hero-lead{ font-size:14.5px; max-width:none; line-height:1.95; }
+    .hero-meta{ margin-top:30px; padding-top:18px; gap:4px 18px; font-size:11px; letter-spacing:0.08em; line-height:1.9; }
+    .hero-cta{ margin-top:28px; }
+
+    .concept-body p, .owner-body p{ font-size:14.5px; line-height:2.05; }
+    .owner-body{ padding:56px 22px; }
+
+    /* menu: name + price on one row, description full width */
+    .m-row summary{ grid-template-columns:1fr auto; column-gap:14px; row-gap:6px; padding:22px 0; }
+    .m-row summary > div:first-child{ display:contents; }
+    .m-name{ grid-column:1; grid-row:1; font-size:16.5px; line-height:1.55; }
+    .m-name span{ display:block; margin:2px 0 0; font-size:10.5px; letter-spacing:0.14em; }
+    .m-price{ grid-column:2; grid-row:1; }
+    .m-price b{ font-size:21px; }
+    .m-price i{ font-size:10px; letter-spacing:0.02em; }
+    .m-time{ grid-column:1 / -1; grid-row:2; margin-top:2px; font-size:12.5px; line-height:1.85; letter-spacing:0.06em; }
+    .m-desc{ font-size:13px; padding-bottom:22px; }
+    .m-head h3{ font-size:20px; }
+
+    .voice{ padding:26px 22px; }
+    .voice p{ font-size:14px; line-height:2; }
+    .brand{ padding:34px 24px; }
+    .faq summary{ line-height:1.75; }
+    .mid-cta{ padding:38px 0; }
+    .mid-cta p{ padding:0 22px; }
+  }
+
   .rv{ opacity:0; transform:translateY(22px); transition:opacity .9s ease, transform .9s ease; }
   .rv.in{ opacity:1; transform:none; }
   @media(prefers-reduced-motion:reduce){ .rv{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;} }
@@ -344,7 +353,6 @@
 <div class="overlay" id="ov">
   <div class="x" id="ovX">×</div>
   <nav>
-    <a href="campaign.html">キャンペーン<small>CAMPAIGN</small></a>
     <a href="#concept">コンセプト<small>CONCEPT</small></a>
     <a href="#owner">エステティシャン<small>ESTHETICIAN</small></a>
     <a href="#menu">メニュー<small>MENU</small></a>
@@ -361,10 +369,9 @@
   <div class="hero-img"><img src="images/hero-shop.jpg" alt="SHYNELL 店内"></div>
   <div class="hero-txt">
     <div class="vert">栃木県小山市 ｜ 完全予約制</div>
-    <a href="campaign.html" class="cp-badge"><b>その乾燥、ただの水分不足じゃないかも？</b> 数量限定キャンペーン →</a>
     <h1>最近、肌の<br>調子<em>いいかも。</em></h1>
-    <div class="hero-catch">『ノーファンデでも自信が持てる肌』へ。</div>
-    <p class="hero-lead">23歳が目指す、肌質改善サロン。シミ・シワ・たるみ・毛穴・ニキビに、本気で向き合います。</p>
+    <div class="hero-catch"><span class="np">『ノーファンデでも</span><span class="np">自信が持てる肌』へ。</span></div>
+    <p class="hero-lead"><span class="np">23歳が目指す、</span><span class="np">肌質改善サロン。</span><span class="np">シミ・シワ・たるみ・毛穴・ニキビに、</span><span class="np">本気で向き合います。</span></p>
     <div class="hero-meta">
       <span>CHRISTINA / HAAB 正規取扱</span>
       <span>マンツーマン施術</span>
